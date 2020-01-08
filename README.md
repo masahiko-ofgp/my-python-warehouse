@@ -1,5 +1,3 @@
 # My python warehouse
 
-## Require
-
-- pipenv
+I use Python3.8 .
