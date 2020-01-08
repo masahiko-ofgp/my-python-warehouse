@@ -2,7 +2,7 @@ def fact_cps(n, cont):
     if n == 0:
         return cont(1)
     else:
-        return fact_cc(n - 1, lambda x: cont(n * x))
+        return fact_cps(n - 1, lambda x: cont(n * x))
 
 def fact(n):
     return fact_cps(n, lambda x: x)
