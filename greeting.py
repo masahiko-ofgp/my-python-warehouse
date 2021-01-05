@@ -1,9 +1,9 @@
-def hello():
-    print("Hello, world!!")
-
-def hello2(name):
-    print(f"Hello, {name}!!")
+def hello(name=None):
+    if name is None:
+        return "Hello, world!!"
+    else:
+        return f"Hello, {name}!!"
 
 if __name__ == '__main__':
-    hello()
-    hello2("Tom")
+    print(hello())
+    print(hello("Tom"))

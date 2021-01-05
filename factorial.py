@@ -18,3 +18,8 @@ if __name__ == '__main__':
         However, setting too large numbers will crash.
     """
     print(fact(5))
+
+
+    # math
+    import math
+    print(math.factorial(5))

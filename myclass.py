@@ -1,29 +1,59 @@
-class Name:
-    def __init__(self, name):
-        self.name = name
-
-    def get_name(self):
-        return self.name
+from enum import IntFlag
 
 
-class Person(Name):
-    def __init__(self, name, email):
-        super().__init__(name)
-        self.email = email
-
-    def get_email(self):
-        return self.email
+class LightState(IntFlag):
+    On = 0
+    Off = 1
 
 
-class Dog(Name):
-    def __init__(self, name):
-        super().__init__(name)
+class WheelState(IntFlag):
+    Normal = 0
+    Chain = 1
 
 
-if __name__ == '__main__':
-    tom = Person("Tom", "tom@tom.com")
-    hachi = Dog("Hachi")
+class Light:
+    def __init__(self, number):
+        self.number = number
+        self.state = LightState(1)
 
-    print(tom.get_name())
-    print(tom.get_email())
-    print(hachi.get_name())
+    def __repr__(self):
+        return f"Light[number: {self.number}, state: {self.state}]"
+
+    def switch(self):
+        if self.state is LightState.Off:
+            self.state = LightState(0)
+        else:
+            self.state = LightState(1)
+
+class Wheel:
+    def __init__(self, number):
+        self.number = number
+        self.state = WheelState(0)
+
+    def __repr__(self):
+        return f"Wheel[number: {self.number}, state: {self.state}]"
+
+    def change_wheel(self):
+        if self.state is WheelState.Normal:
+            self.state = WheelState(1)
+        else:
+            self.state = WheelState(0)
+
+
+class Car:
+    def __init__(self):
+        self.front_light = Light(2)
+        self.back_light = Light(2)
+        self.wheel = Wheel(4)
+
+    def __repr__(self):
+        return f"Car[{self.front_light}, {self.back_light}, {self.wheel}]"
+
+
+class Bicycle:
+    def __init__(self):
+        self.light = Light(1)
+        self.wheel = Wheel(2)
+
+    def __repr__(self):
+        return f"Bicycle[{self.light}, {self.wheel}]"
