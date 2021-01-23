@@ -46,6 +46,19 @@ def bubble_sort(arr):
             else:
                 continue
 
+# Quick Sort
+def quick_sort(l):
+    if l == []:
+        return l
+    else:
+        pivot = l[len(l) // 2]
+        y = quick_sort([i for i in l if i < pivot])
+        p = [i for i in l if i == pivot]
+        n = quick_sort([i for i in l if i > pivot])
+        y += p
+        y += n
+        return y
+        
 
 if __name__ == '__main__':
     arr = [3,6,1,7,2,0,4,5,9,8]
